@@ -2621,6 +2621,21 @@ vim /etc/fstab
 swapon -a # made available space swap in /etc/fstab
 ```
 
+### Tips : Extend LV from a new disks in a XFS file system
+
+```bash
+# Create a new PV with the new disk
+pvcreate /dev/new_disk
+
+# Extend VG
+vgextend vg_name /dev/new_disk
+
+# Extend LV with all the free space on VG 
+lvextend -l +100%FREE /dev/vg_name/lv_name
+
+# Expand FS
+xfs_growfs /dev/rootvg/lv_name
+```
 
 # RHEL 8: Creating and Configuring File Systems
 

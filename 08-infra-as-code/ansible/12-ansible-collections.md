@@ -1,0 +1,1 @@
+https://docs.ansible.com/ansible/latest/tips_tricks/index.html
